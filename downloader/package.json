@@ -2,15 +2,19 @@
   "name": "downloader",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "./src/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "npm run build && node dist/index.js",
+    "start": "npm run build && node ./src/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@types/amqplib": "^0.10.1",
     "typescript": "^5.1.6"
+  },
+  "dependencies": {
+    "amqplib": "^0.10.3"
   }
 }
