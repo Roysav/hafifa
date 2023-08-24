@@ -3,7 +3,7 @@ FROM python
 WORKDIR /app/
 COPY requirements.txt /app/requirements.txt
 COPY main.py /app/main.py
-RUN "pip3 install -r requirements.txt"
+RUN python3 -m pip install -r requirements.txt
 
 ARG RABBITMQ_HOST
 ARG RABBITMQ_PORT
