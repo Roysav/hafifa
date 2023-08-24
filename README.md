@@ -29,17 +29,21 @@ body:
 
 ### `Requests` Queue
 כל הודעה היא string של JSON מהפורמט הבא:
+```javascript
 {
   method: str
   url: str
   body?: any
 }
+```
 
 
 ### `Responses` Queue
 כל הודעה היא string של JSON מהפורמט הבא:
+```javascript
 {
-  request: Request # לפי הפורמט שמפורט בפרטוקול של `Requests` Queue
+  request: Request // לפי הפורמט שמפורט בפרטוקול של `Requests` Queue
   body: any
 }
+```
 
