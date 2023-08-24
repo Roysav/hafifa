@@ -7,6 +7,39 @@ microservices:
 - [x] rabbitmq
 - [x] mongodb
   
-## building the spiders service
+### spiders
 1. הservice ישלח בקשות HTTP ע"י הוספת הrequest לqueue בשם `Requests` rabbitmq.
-2. הservice יאזין לqueue בשם `Responses` בrabbitmq, יעבד את הresponse במידת הצורך ישלח בקשות נוספות כמפורט ב[סעיף 1](building-the-spiders-service#)
+2. הservice יאזין לqueue בשם `Responses` בrabbitmq, יעבד את הresponse ובמידת הצורך ישלח בקשות נוספות כמפורט בסעיף 1
+
+### downloader
+1. יאזין לqueue בשם `Requests` בrabbitmq ישלח את הבקשה לאינטרנט
+2. כשתיתקבל תשובה לבקשה הוא יוסיף אותו לqueue בשם `Responses`
+
+### pipelines
+1. שרת שמקבל בקשות `POST` דרך endpoint: items.
+
+## Protocols
+### post to pipelines
+*POST `/items/<collection: str>/<document_id: str>`*
+
+body:
+
+אובייקט JSON של הפרטים לגבי המוצר
+- type: object
+
+### `Requests` Queue
+כל הודעה היא string של JSON מהפורמט הבא:
+{
+  method: str
+  url: str
+  body?: any
+}
+
+
+### `Responses` Queue
+כל הודעה היא string של JSON מהפורמט הבא:
+{
+  request: Request # לפי הפורמט שמפורט בפרטוקול של `Requests` Queue
+  body: any
+}
+
