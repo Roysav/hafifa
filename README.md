@@ -1,4 +1,6 @@
 # פרויקט החפיפה של שביל
+יצירת webscraper על האתר http://quotes.toscrape.com/ ואיחסון באמצעות microservices.
+
 microservices: 
 - [ ] downloader
 - [ ] spiders
