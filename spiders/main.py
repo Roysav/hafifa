@@ -1,4 +1,6 @@
 import json
+import os
+import sys
 from typing import TypedDict
 
 import parsel as parsel
@@ -16,9 +18,10 @@ class Response(TypedDict):
     request: Request
     body: str
 
+
 BASE_URL = 'http://quotes.toscrape.com/'
-HOST = 'localhost'
-PORT = '5672'
+HOST = os.environ['RABBITMQ_HOST']
+PORT = os.environ['RABBITMQ_PORT']
 
 connection = pika.BlockingConnection(pika.ConnectionParameters(
     host=HOST,
