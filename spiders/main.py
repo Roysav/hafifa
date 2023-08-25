@@ -5,6 +5,7 @@ from typing import TypedDict
 
 import parsel as parsel
 import pika
+import logging
 import requests
 
 
@@ -70,7 +71,7 @@ def consume(ch, method, properties, body: bytes):
     selector = parsel.Selector(body['body'])
     for quote_div in selector.css('div.col-md-8 > div.quote'):
         dct = parse_quote(quote_div)
-        print(dct)
+        logging.info(dct)
     next_page_href = BASE_URL + selector.css('ul.pager > li.next > a::attr(href)').get()
     send_request('GET', next_page_href)
     return
