@@ -78,6 +78,7 @@ def consume(ch, method, properties, body: bytes):
 
 
 def main():
+    logging.info('Starting spider')
     res = requests.get(BASE_URL)
     channel.basic_publish('', 'Responses', json.dumps({
         'request': {
