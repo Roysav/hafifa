@@ -17,4 +17,13 @@ services:
       - RABBITMQ_PORT=5672
     restart: on-failure
     network_mode: "host"
+  downloader:
+    build: ./downloader
+    depends_on:
+      - rabbitmq
+    environment:
+      - RABBITMQ_HOST=localhost
+      - RABBITMQ_PORT=5672
+    restart: on-failure
+    network_mode: "host"
 
