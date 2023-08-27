@@ -3,7 +3,7 @@
 
 microservices: 
 - [ ] downloader
-- [ ] spiders
+- [x] spiders
 - [ ] pipelines
 
 - [x] rabbitmq
