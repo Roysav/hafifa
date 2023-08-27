@@ -31,8 +31,8 @@ PORT = os.environ['RABBITMQ_PORT']
 connection = pika.BlockingConnection(
     pika.ConnectionParameters(host=HOST, port=PORT))
 channel = connection.channel()
-channel.queue_declare('Requests', durable=True)
-channel.queue_declare('Responses', durable=True)
+channel.queue_declare('Requests')
+channel.queue_declare('Responses')
 
 
 def consume(ch, method, properties, body: bytes):
