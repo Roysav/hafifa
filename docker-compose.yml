@@ -17,7 +17,6 @@ services:
       - RABBITMQ_PORT=5672
     restart: on-failure
     network_mode: "host"
-<<<<<<< HEAD
   downloader:
     build: ./downloader
     depends_on:
@@ -27,6 +26,4 @@ services:
       - RABBITMQ_PORT=5672
     restart: on-failure
     network_mode: "host"
-=======
->>>>>>> 3c9e8c348f0d13286f4db15f7ef26a65e60baf40
 
